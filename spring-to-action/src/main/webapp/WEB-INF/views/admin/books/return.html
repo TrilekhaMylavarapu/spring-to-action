@@ -1,9 +1,8 @@
 <html layout:decorate="~{layouts/main}">
   <head>
-    <title>Authority Matcher</title>
+    <title>Return Books</title>
   </head>
   <body>
-  
    <div layout:fragment="content">
         <div th:if="${msg}" class="alert alert-info" role="alert">[[${msg}]]</div>
 		<ul class="list-group">
@@ -13,12 +12,13 @@
 		        <span th:if="${book.available}" class="label label-info">Available</span>
 		        
 		        <div sec:authorize="isAuthenticated()">
-		            <form  th:action="@{|/auth/book/${book.id}/borrow|}" method="POST">
-		            <button class="pull-right btn btn-default btn-sm" type="submit">Borrow</button>
+		            <form  th:action="@{|/auth/book/${book.id}/Return|}" method="POST">
+		            <button class="pull-right btn btn-default btn-sm" type="submit">Return</button>
 		            </form>
 		        </div>
 		    </li>
 		</ul>
+		
    </div>`
   </body>
 </html>
